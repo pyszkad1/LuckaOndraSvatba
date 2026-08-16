@@ -546,23 +546,25 @@
 
         <div id="rsvpStatus" class="rsvp-status-msg"></div>
 
-        <form id="rsvpForm" class="rsvp-form">
+        <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
+
+        <form id="rsvpForm" class="rsvp-form" action="https://docs.google.com/forms/d/e/1FAIpQLSeJUSw9vL7rk6vvjV-Vv0cuKWXM1HEtRyWIMtEWju7mKe2fag/formResponse" method="POST" target="hidden_iframe">
           <div class="form-group form-full">
             <label class="form-label" for="rsvpName">Vaše Jméno a Příjmení *</label>
-            <input type="text" id="rsvpName" class="form-input" placeholder="např. Jan a Marie Novákovi" required />
+            <input type="text" id="rsvpName" name="entry.1498135098" class="form-input" placeholder="např. Jan a Marie Novákovi" required />
           </div>
 
           <div class="form-group">
             <label class="form-label" for="rsvpAttendance">Vaše účast *</label>
-            <select id="rsvpAttendance" class="form-select" required>
-              <option value="yes">S radostí dorazím / dorazíme 🎉</option>
-              <option value="no">Bohužel se nemohu zúčastnit 💔</option>
+            <select id="rsvpAttendance" name="entry.877086558" class="form-select" required>
+              <option value="Yes,  I'll be there">S radostí dorazím / dorazíme 🎉</option>
+              <option value="Sorry, can't make it">Bohužel se nemohu zúčastnit 💔</option>
             </select>
           </div>
 
           <div class="form-group">
             <label class="form-label" for="rsvpGuests">Počet osob (včetně dětí)</label>
-            <select id="rsvpGuests" class="form-select">
+            <select id="rsvpGuests" name="entry.495194723" class="form-select">
               <option value="1">1 osoba</option>
               <option value="2" selected>2 osoby</option>
               <option value="3">3 osoby</option>
@@ -573,12 +575,12 @@
 
           <div class="form-group form-full">
             <label class="form-label" for="rsvpDietary">Dietní omezení / Alergie</label>
-            <input type="text" id="rsvpDietary" class="form-input" placeholder="např. bezlepková dieta, vegetarián, bez laktózy..." />
+            <input type="text" id="rsvpDietary" name="entry.1912311180" class="form-input" placeholder="např. bezlepková dieta, vegetarián, bez laktózy... (nebo 'Bez omezení')" />
           </div>
 
           <div class="form-group form-full">
             <label class="form-label" for="rsvpNote">Vzkaz pro Lucku a Ondru / Písnička na přání</label>
-            <textarea id="rsvpNote" class="form-textarea" placeholder="Napište nám vzkaz nebo píseň, která vás zaručeně dostane na taneční parket..."></textarea>
+            <textarea id="rsvpNote" name="entry.696778978" class="form-textarea" placeholder="Napište nám vzkaz nebo píseň, která vás zaručeně dostane na taneční parket..."></textarea>
           </div>
 
           <div class="form-full text-center" style="margin-top: 1rem;">

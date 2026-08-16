@@ -145,55 +145,36 @@ function initRSVPForm() {
 
   if (!rsvpForm || !statusMsg) return;
 
-  rsvpForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
+  let isSubmitting = false;
+
+  rsvpForm.addEventListener('submit', () => {
+    if (isSubmitting) return;
+    isSubmitting = true;
 
     const name = document.getElementById('rsvpName').value.trim();
     const attendance = document.getElementById('rsvpAttendance').value;
-    const attendanceGoogleValue = attendance === 'yes' ? "Yes,  I'll be there" : "Sorry, can't make it";
+    const isAttending = attendance.includes('Yes');
     const guests = document.getElementById('rsvpGuests').value;
-    const dietary = document.getElementById('rsvpDietary').value.trim() || 'Bez omezení';
-    const note = document.getElementById('rsvpNote').value.trim();
 
     const submitBtn = rsvpForm.querySelector('button[type="submit"]');
     const originalText = submitBtn.textContent;
     submitBtn.textContent = 'Odesílám potvrzení...';
     submitBtn.disabled = true;
 
-    // Odeslání dat na pozadí do Google Formuláře a Google Tabulky
-    if (GOOGLE_FORM_CONFIG.formUrl) {
-      try {
-        const formData = new FormData();
-        formData.append(GOOGLE_FORM_CONFIG.entries.name, name);
-        formData.append(GOOGLE_FORM_CONFIG.entries.attendance, attendanceGoogleValue);
-        formData.append(GOOGLE_FORM_CONFIG.entries.guests, guests);
-        formData.append(GOOGLE_FORM_CONFIG.entries.dietary, dietary);
-        formData.append(GOOGLE_FORM_CONFIG.entries.note, note);
-
-        await fetch(GOOGLE_FORM_CONFIG.formUrl, {
-          method: 'POST',
-          mode: 'no-cors',
-          body: formData
-        });
-      } catch (err) {
-        console.warn('Odeslání do Google Form:', err);
-      }
-    }
-
-    // Krátká prodleva pro přirozený zážitek a zobrazení potvrzení
+    // Po odeslání do skrytého iframe zobrazíme hezké potvrzení pro hosta
     setTimeout(() => {
       submitBtn.textContent = originalText;
       submitBtn.disabled = false;
       rsvpForm.style.display = 'none';
       statusMsg.style.display = 'block';
       statusMsg.innerHTML = `
-        <div style="text-align: center; padding: 1rem 0;">
-          <div style="font-size: 3rem; margin-bottom: 0.5rem;">💌</div>
-          <h4 style="font-family: var(--font-serif-display); font-size: 1.6rem; color: var(--gold-dark); margin-bottom: 0.5rem;">
+        <div style="text-align: center; padding: 1.5rem 0;">
+          <div style="font-size: 3.2rem; margin-bottom: 0.75rem;">💌</div>
+          <h4 style="font-family: var(--font-serif-display); font-size: 1.7rem; color: var(--gold-dark); margin-bottom: 0.5rem;">
             Děkujeme, ${name}! ❤️
           </h4>
-          <p style="color: var(--text-secondary); font-size: 1.05rem; max-width: 520px; margin: 0 auto;">
-            Vaše potvrzení (${attendance === 'yes' ? 'Rád/a dorazím 🎉' : 'Bohužel nedorazím 💔'}, počet hostů: <strong>${guests}</strong>) bylo úspěšně zaznamenáno a uloženo. Moc se na vás těšíme v Chateau St. Havel!
+          <p style="color: var(--text-secondary); font-size: 1.1rem; max-width: 520px; margin: 0 auto; line-height: 1.6;">
+            Vaše potvrzení (${isAttending ? 'Rád/a dorazím 🎉' : 'Bohužel nedorazím 💔'}, počet hostů: <strong>${guests}</strong>) bylo úspěšně uloženo do naší tabulky hostů. Moc se na vás těšíme v Chateau St. Havel!
           </p>
         </div>
       `;
