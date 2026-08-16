@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lucka &amp; Ondra · 8. 5. 2027 · Chateau St. Havel</title>
+  
+  <!-- Meta tags for social sharing (WhatsApp, Facebook, iMessage) -->
+  <meta name="description" content="Svatba Lucky a Ondry — Sobota 8. května 2027, Chateau St. Havel wellness hotel, Praha 4." />
+  <meta property="og:title" content="Lucka &amp; Ondra · 8. 5. 2027" />
+  <meta property="og:description" content="Řekla ANO! Velký den pro bridžovou rodinu Bahníků v Chateau St. Havel." />
+  <meta property="og:image" content="pics/Sure0.jpeg" />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#FAF7F2" />
+
+  <!-- Google Fonts: Playfair Display, Cormorant Garamond, Great Vibes, Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Favicon SVG -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='80' font-size='80'%3E%F0%9F%92%8D%3C/text%3E%3C/svg%3E" />
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ==========================================================================
+       HEADER & NAVIGATION
+       ========================================================================== -->
+  <header class="site-nav" id="siteNav">
+    <div class="container nav-wrapper">
+      <a href="#hero" class="nav-brand">
+        <span class="initials">L &amp; O</span>
+      </a>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="Otevřít menu" aria-expanded="false">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M3 12h18M3 6h18M3 18h18"/>
+        </svg>
+      </button>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#hero" class="nav-link">Úvod</a></li>
+        <li><a href="#story" class="nav-link">Příběh</a></li>
+        <li><a href="#venue" class="nav-link">Místo &amp; Mapa</a></li>
+        <li><a href="#schedule" class="nav-link">Harmonogram</a></li>
+        <li><a href="#gallery" class="nav-link">Fotogalerie</a></li>
+        <li><a href="#info" class="nav-link">Informace</a></li>
+        <li><a href="#rsvp" class="nav-link nav-cta">Potvrdit účast</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- ==========================================================================
+       HERO SECTION
+       ========================================================================== -->
+  <section class="hero" id="hero">
+    <div class="hero-content">
+      <div class="hero-eyebrow">Řekla ANO · Budeme se brát</div>
+      
+      <h1 class="hero-names">
+        Lucka <span class="hero-ampersand">&amp;</span> Ondra
+      </h1>
+
+      <p class="hero-bridge-family">
+        Velký den pro bridžovou rodinu Bahníků
+      </p>
+
+      <div class="hero-date-badge">
+        <span class="hero-day-time">Sobota</span>
+        <span class="hero-date-big">8. Května 2027</span>
+        <span class="hero-venue-name">Chateau St. Havel wellness hotel · Praha</span>
+      </div>
+
+      <!-- Live Countdown -->
+      <div class="countdown-box" aria-label="Odpočítávání do svatby">
+        <div class="countdown-unit">
+          <div class="countdown-number" id="cd-days">--</div>
+          <div class="countdown-label">Dní</div>
+        </div>
+        <div class="countdown-unit">
+          <div class="countdown-number" id="cd-hours">--</div>
+          <div class="countdown-label">Hodin</div>
+        </div>
+        <div class="countdown-unit">
+          <div class="countdown-number" id="cd-minutes">--</div>
+          <div class="countdown-label">Minut</div>
+        </div>
+        <div class="countdown-unit">
+          <div class="countdown-number" id="cd-seconds">--</div>
+          <div class="countdown-label">Sekund</div>
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="hero-actions">
+        <a href="#rsvp" class="btn btn-primary">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+            <polyline points="22 4 12 14.01 9 11.01"/>
+          </svg>
+          Potvrdit účast (RSVP)
+        </a>
+        <a href="#" id="btnGoogleCal" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+            <line x1="16" y1="2" x2="16" y2="6"/>
+            <line x1="8" y1="2" x2="8" y2="6"/>
+            <line x1="3" y1="10" x2="21" y2="10"/>
+          </svg>
+          Uložit do kalendáře
+        </a>
+        <a href="#" id="btnIcsCal" class="btn btn-secondary" title="Stáhnout iCal (.ics) soubor">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+            <polyline points="7 10 12 15 17 10"/>
+            <line x1="12" y1="15" x2="12" y2="3"/>
+          </svg>
+          Stáhnout .ics
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       STORY / ENGAGEMENT SECTION
+       ========================================================================== -->
+  <section class="section" id="story">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Náš příběh</span>
+        <h2 class="section-title">Jak to všechno začalo</h2>
+        <div class="flourish-divider">
+          <span class="flourish-line"></span>
+          <span class="flourish-icon">❦</span>
+          <span class="flourish-line"></span>
+        </div>
+      </div>
+
+      <div class="story-grid">
+        <div class="story-image-wrap">
+          <div class="story-image-card">
+            <img src="pics/Sure0.jpeg" alt="Zásnubní prstýnek s výhledem na skotský viadukt Glenfinnan" loading="lazy" />
+            <div class="story-badge">
+              <span>💍 Glenfinnan Viaduct, Skotsko</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="story-content">
+          <h3>Společná cesta plná lásky, humoru a bridžových partiček</h3>
+          <p>
+            Každá velká cesta začíná jedním společným krokem — a pro nás to byl okamžik, kdy jsme věděli, že spolu chceme projít všemi životními výzvami, radostmi i velkými oslavami.
+          </p>
+          <div class="quote-box">
+            „Bridž nás naučil promýšlet tahy dopředu, ale v lásce jsme měli jasno od prvního rozdání.“
+          </div>
+          <p>
+            V květnu 2027 oslavíme náš svazek v kouzelném zámeckém prostředí a budeme nesmírně šťastní, když u toho budete s námi.
+          </p>
+          <a href="#venue" class="btn btn-secondary" style="margin-top: 0.5rem;">
+            Zobrazit místo svatby &rarr;
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       VENUE & MAP SECTION
+       ========================================================================== -->
+  <section class="section" id="venue" style="background-color: var(--bg-subtle);">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Místo konání</span>
+        <h2 class="section-title">Chateau St. Havel</h2>
+        <p class="section-subtitle">
+          Novogotický zámek uprostřed anglického parku a rybníků v srdci Prahy
+        </p>
+        <div class="flourish-divider">
+          <span class="flourish-line"></span>
+          <span class="flourish-icon">❦</span>
+          <span class="flourish-line"></span>
+        </div>
+      </div>
+
+      <div class="venue-card">
+        <div class="venue-info">
+          <h3 class="venue-title">Chateau St. Havel wellness hotel</h3>
+          <p class="venue-address">
+            📍 Před nádražím 1/6, 140 00 Praha 4 - Krč, Česká republika
+          </p>
+
+          <div class="venue-links">
+            <a href="https://www.chateauhotel.cz/" target="_blank" rel="noopener noreferrer" class="venue-link-pill">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"/>
+                <line x1="2" y1="12" x2="22" y2="12"/>
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+              </svg>
+              Oficiální web hotelu (chateauhotel.cz)
+            </a>
+            <a href="https://maps.google.com/?q=Chateau+St.+Havel+P%C5%99ed+n%C3%A1dra%C5%BE%C3%ADm+1%2F6+Praha+4" target="_blank" rel="noopener noreferrer" class="venue-link-pill">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/>
+                <line x1="8" y1="2" x2="8" y2="18"/>
+                <line x1="16" y1="6" x2="16" y2="22"/>
+              </svg>
+              Google Mapy
+            </a>
+            <a href="https://mapy.cz/zakladni?q=Chateau%20St.%20Havel" target="_blank" rel="noopener noreferrer" class="venue-link-pill">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"/>
+                <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/>
+              </svg>
+              Mapy.cz
+            </a>
+          </div>
+        </div>
+
+        <!-- Embedded Interactive Map -->
+        <iframe
+          class="venue-map-frame"
+          src="https://maps.google.com/maps?q=Chateau+St.+Havel,+P%C5%99ed+n%C3%A1dra%C5%BE%C3%ADm+1/6,+140+00+Praha+4+-+Kr%C4%8D&amp;t=&amp;z=15&amp;ie=UTF8&amp;iwloc=&amp;output=embed"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Mapa lokality: Chateau St. Havel, Praha 4 - Krč">
+        </iframe>
+
+        <div class="venue-travel-notes">
+          <div class="travel-note">
+            <h4>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="1" y="3" width="15" height="13"/>
+                <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/>
+                <circle cx="5.5" cy="18.5" r="2.5"/>
+                <circle cx="18.5" cy="18.5" r="2.5"/>
+              </svg>
+              Parkování &amp; Příjezd autem
+            </h4>
+            <p>
+              Pohodlné bezplatné parkování je k dispozici přímo v uzavřeném areálu zámeckého parku Chateau St. Havel.
+            </p>
+          </div>
+          <div class="travel-note">
+            <h4>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="4" y="3" width="16" height="16" rx="2"/>
+                <path d="M4 11h16"/>
+                <path d="M12 3v8"/>
+                <path d="m8 19-2 3"/>
+                <path d="m16 19 2 3"/>
+              </svg>
+              Doprava MHD &amp; Vlakem
+            </h4>
+            <p>
+              Vlaková zastávka <em>Praha-Krč</em> je v pěší vzdálenosti cca 3 minuty. Nejbližší stanice metra linky C jsou <em>Kačerov</em> nebo <em>Budějovická</em> (autobusem cca 5 min).
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SCHEDULE / TIMELINE
+       ========================================================================== -->
+  <section class="section" id="schedule">
+    <div class="container container-narrow">
+      <div class="section-header">
+        <span class="section-tag">Harmonogram</span>
+        <h2 class="section-title">Průběh svatebního dne</h2>
+        <p class="section-subtitle">
+          Časový plán našeho slavnostního dne (časy jsou orientační)
+        </p>
+        <div class="flourish-divider">
+          <span class="flourish-line"></span>
+          <span class="flourish-icon">❦</span>
+          <span class="flourish-line"></span>
+        </div>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-node">🥂</div>
+          <div class="timeline-content">
+            <div class="timeline-time">12:30</div>
+            <h3 class="timeline-title">Příjezd hostů &amp; Welcome drink</h3>
+            <p class="timeline-desc">Přivítání v zámeckých prostorách, sklenka na uvítanou a usazování hostů.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-node">💍</div>
+          <div class="timeline-content">
+            <div class="timeline-time">13:00</div>
+            <h3 class="timeline-title">Svatební obřad</h3>
+            <p class="timeline-desc">Romantický obřad v zámeckém parku Chateau St. Havel pod širým nebem.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-node">📸</div>
+          <div class="timeline-content">
+            <div class="timeline-time">13:45</div>
+            <h3 class="timeline-title">Gratulace &amp; Společné focení</h3>
+            <p class="timeline-desc">Přípitky s novomanželi, společná skupinová fotografie a rodinné snímky.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-node">🍽️</div>
+          <div class="timeline-content">
+            <div class="timeline-time">14:30</div>
+            <h3 class="timeline-title">Svatební hostina</h3>
+            <p class="timeline-desc">Slavnostní oběd, přípitky a gastronomické zážitky ze zámecké kuchyně.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-node">🍰</div>
+          <div class="timeline-content">
+            <div class="timeline-time">16:30</div>
+            <h3 class="timeline-title">Krájení dortu &amp; Káva</h3>
+            <p class="timeline-desc">Tradiční krájení svatebního dortu a odpolední káva na terase.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-node">💐</div>
+          <div class="timeline-content">
+            <div class="timeline-time">17:30</div>
+            <h3 class="timeline-title">Házení svatební kytice</h3>
+            <p class="timeline-desc">Kdo bude další nevěstou? Tradiční rituál pro všechny svobodné dámy.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-node">🍢</div>
+          <div class="timeline-content">
+            <div class="timeline-time">18:30</div>
+            <h3 class="timeline-title">Večerní raut &amp; Grilování</h3>
+            <p class="timeline-desc">Bohatý večerní raut, zámecké speciality a speciality z grilu.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-node">💃</div>
+          <div class="timeline-content">
+            <div class="timeline-time">19:30</div>
+            <h3 class="timeline-title">První novomanželský tanec</h3>
+            <p class="timeline-desc">Otevření tanečního parketu romantickým tancem Lucky &amp; Ondry.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-node">🎶</div>
+          <div class="timeline-content">
+            <div class="timeline-time">20:00</div>
+            <h3 class="timeline-title">Párty &amp; Zábava až do rána</h3>
+            <p class="timeline-desc">Hudba, bridžové výzvy, drinky a skvělá atmosféra až do brzkých ranních hodin.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       PHOTO MOMENTS / GALLERY
+       ========================================================================== -->
+  <section class="section" id="gallery" style="background-color: var(--bg-subtle);">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Galerie</span>
+        <h2 class="section-title">Společné okamžiky</h2>
+        <p class="section-subtitle">
+          Střípky z našich cest, výletů a oslav
+        </p>
+        <div class="flourish-divider">
+          <span class="flourish-line"></span>
+          <span class="flourish-icon">❦</span>
+          <span class="flourish-line"></span>
+        </div>
+      </div>
+
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <img src="pics/Sure6.jpg" alt="Lucka a Ondra u Fontány di Trevi v Římě" loading="lazy" />
+          <div class="gallery-overlay">
+            <div class="gallery-caption">Fontana di Trevi</div>
+            <div class="gallery-location">Řím, Itálie</div>
+          </div>
+        </div>
+
+        <div class="gallery-item">
+          <img src="pics/Sure4.jpg" alt="Lucka a Ondra v parku Retiro v Madridu" loading="lazy" />
+          <div class="gallery-overlay">
+            <div class="gallery-caption">Parque del Retiro</div>
+            <div class="gallery-location">Madrid, Španělsko</div>
+          </div>
+        </div>
+
+        <div class="gallery-item">
+          <img src="pics/Sure3.jpg" alt="Lucka a Ondra v zámeckém parku Průhonice" loading="lazy" />
+          <div class="gallery-overlay">
+            <div class="gallery-caption">Zámecký park</div>
+            <div class="gallery-location">Průhonice</div>
+          </div>
+        </div>
+
+        <div class="gallery-item">
+          <img src="pics/Sure2.jpg" alt="Lucka a Ondra v kouzelném skalním městě" loading="lazy" />
+          <div class="gallery-overlay">
+            <div class="gallery-caption">Romantické skály a jezero</div>
+            <div class="gallery-location">Česká příroda</div>
+          </div>
+        </div>
+
+        <div class="gallery-item">
+          <img src="pics/Sure1.jpg" alt="Společná narozeninová oslava s dortem Všechno nejlepší" loading="lazy" />
+          <div class="gallery-overlay">
+            <div class="gallery-caption">Všechno nejlepší!</div>
+            <div class="gallery-location">Rodinné oslavy</div>
+          </div>
+        </div>
+
+        <div class="gallery-item">
+          <img src="pics/Sure5.jpg" alt="Slavnostní chvíle s dortem a prskavkami" loading="lazy" />
+          <div class="gallery-overlay">
+            <div class="gallery-caption">Jiskra štěstí</div>
+            <div class="gallery-location">Společné chvíle</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       IMPORTANT INFORMATION (Dress Code, Gifts, Accommodation, Contacts)
+       ========================================================================== -->
+  <section class="section" id="info">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Pro hosty</span>
+        <h2 class="section-title">Důležité informace</h2>
+        <p class="section-subtitle">
+          Vše, co potřebujete vědět před příjezdem na zámek
+        </p>
+        <div class="flourish-divider">
+          <span class="flourish-line"></span>
+          <span class="flourish-icon">❦</span>
+          <span class="flourish-line"></span>
+        </div>
+      </div>
+
+      <div class="info-grid">
+        <!-- Dress Code -->
+        <div class="info-card">
+          <div class="info-card-header">
+            <div class="info-card-icon">👗</div>
+            <h3 class="info-card-title">Dress Code</h3>
+          </div>
+          <p class="info-card-text">
+            Svatba se nese v duchu <em>Semi-Formal / Cocktail Chic</em>. Bílá a velmi světlé krémové tóny jsou vyhrazeny nevěstě. Pokud se chcete sladit s naší zámeckou paletou, doporučujeme tyto tóny:
+          </p>
+          <div class="palette-chips">
+            <div class="color-swatch">
+              <span class="chip-circle chip-champagne" title="Šampaňská / Zlatá"></span>
+              <span class="chip-label">Zlatá</span>
+            </div>
+            <div class="color-swatch">
+              <span class="chip-circle chip-burgundy" title="Královská vínová"></span>
+              <span class="chip-label">Vínová</span>
+            </div>
+            <div class="color-swatch">
+              <span class="chip-circle chip-sage" title="Šalvějová zeleň"></span>
+              <span class="chip-label">Šalvěj</span>
+            </div>
+            <div class="color-swatch">
+              <span class="chip-circle chip-navy" title="Noční modř"></span>
+              <span class="chip-label">Modrá</span>
+            </div>
+            <div class="color-swatch">
+              <span class="chip-circle chip-dustyrose" title="Pudrově růžová"></span>
+              <span class="chip-label">Pudrová</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Svatební dary -->
+        <div class="info-card">
+          <div class="info-card-header">
+            <div class="info-card-icon">🎁</div>
+            <h3 class="info-card-title">Svatební dary</h3>
+          </div>
+          <p class="info-card-text">
+            Největším darem pro nás je, když tento významný den prožijete s námi. Domácnost máme již kompletně zařízenou — pokud byste nás přesto chtěli obdarovat, nejvíce oceníme jakýkoliv finanční příspěvek na naši svatební cestu a společnou budoucnost.
+          </p>
+          <div class="gift-qr-box">
+            <div class="gift-qr-icon">💳</div>
+            <div style="font-size: 0.85rem; color: var(--text-secondary);">
+              <strong>Možnost příspěvku:</strong><br />
+              Na místě bude k dispozici svatební schránka na přáníčka i QR kód pro okamžitou platbu.
+            </div>
+          </div>
+        </div>
+
+        <!-- Ubytování & Relax -->
+        <div class="info-card">
+          <div class="info-card-header">
+            <div class="info-card-icon">🏰</div>
+            <h3 class="info-card-title">Ubytování &amp; Wellness</h3>
+          </div>
+          <p class="info-card-text">
+            Přímo v hotelu <strong>Chateau St. Havel</strong> je možné rezervovat stylové zámecké pokoje s privátním wellness centrem. V případě zájmu o ubytování na zámku nám dejte prosím vědět v RSVP formuláři co nejdříve, kapacita je omezená.
+          </p>
+        </div>
+
+        <!-- Kontakty & Organizace -->
+        <div class="info-card">
+          <div class="info-card-header">
+            <div class="info-card-icon">📞</div>
+            <h3 class="info-card-title">Kontakty &amp; Svědci</h3>
+          </div>
+          <p class="info-card-text">
+            V případě jakýchkoliv dotazů ohledně programu, překvapení pro novomanžele či organizace se prosím obracejte na naše svědky a koordinátory (kontakty a telefonní čísla budou upřesněny před svatbou).
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       RSVP SECTION
+       ========================================================================== -->
+  <section class="section" id="rsvp" style="background-color: var(--bg-subtle);">
+    <div class="container container-narrow">
+      <div class="rsvp-card">
+        <span class="section-tag">Potvrzení účasti</span>
+        <h2 class="section-title">Budete slavit s námi?</h2>
+        <p class="section-subtitle">
+          Dejte nám prosím vědět, zda dorazíte, ať můžeme vše perfektně připravit.
+        </p>
+
+        <div id="rsvpStatus" class="rsvp-status-msg"></div>
+
+        <form id="rsvpForm" class="rsvp-form">
+          <div class="form-group form-full">
+            <label class="form-label" for="rsvpName">Vaše Jméno a Příjmení *</label>
+            <input type="text" id="rsvpName" class="form-input" placeholder="např. Jan a Marie Novákovi" required />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="rsvpAttendance">Vaše účast *</label>
+            <select id="rsvpAttendance" class="form-select" required>
+              <option value="yes">S radostí dorazím / dorazíme 🎉</option>
+              <option value="no">Bohužel se nemohu zúčastnit 💔</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="rsvpGuests">Počet osob (včetně dětí)</label>
+            <select id="rsvpGuests" class="form-select">
+              <option value="1">1 osoba</option>
+              <option value="2" selected>2 osoby</option>
+              <option value="3">3 osoby</option>
+              <option value="4">4 osoby</option>
+              <option value="5+">5 a více osob</option>
+            </select>
+          </div>
+
+          <div class="form-group form-full">
+            <label class="form-label" for="rsvpDietary">Dietní omezení / Alergie</label>
+            <input type="text" id="rsvpDietary" class="form-input" placeholder="např. bezlepková dieta, vegetarián, bez laktózy..." />
+          </div>
+
+          <div class="form-group form-full">
+            <label class="form-label" for="rsvpNote">Vzkaz pro Lucku a Ondru / Písnička na přání</label>
+            <textarea id="rsvpNote" class="form-textarea" placeholder="Napište nám vzkaz nebo píseň, která vás zaručeně dostane na taneční parket..."></textarea>
+          </div>
+
+          <div class="form-full text-center" style="margin-top: 1rem;">
+            <button type="submit" class="btn btn-primary" style="min-width: 220px;">
+              Odeslat potvrzení ✨
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       FOOTER
+       ========================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-monogram">L &amp; O</div>
+      <h3 class="footer-names">Lucka &amp; Ondra</h3>
+      <p class="footer-date">Sobota 8. Května 2027 · Chateau St. Havel</p>
+      
+      <p style="font-family: var(--font-serif-display); font-size: 1.15rem; font-style: italic; color: #DFC79B; margin-bottom: 2rem;">
+        „Moc se na vás všechny těšíme!“
+      </p>
+
+      <div class="footer-copy">
+        Svatební oznámení &amp; web pro Lucku a Ondru · Vytvořeno s láskou pro bridžovou rodinu Bahníků
+      </div>
+    </div>
+  </footer>
+
+  <!-- Lightbox Modal for Photo Gallery -->
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" id="lightboxClose" aria-label="Zavřít">&times;</button>
+    <img src="" alt="" class="lightbox-img" id="lightboxImg" />
+  </div>
+
+  <!-- JavaScript Script -->
+  <script src="js/main.js"></script>
+</body>
+</html>
