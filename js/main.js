@@ -128,20 +128,14 @@ function initLightbox() {
    ========================================================================== */
 
 // --- GOOGLE FORM CONFIGURATION ---
-// Jakmile vytvoříte Google Formulář, vložte sem jeho ID a ID jednotlivých políček (entry.XXXXX).
-// Návod jak snadno získat entry ID najdete v README.md.
 const GOOGLE_FORM_CONFIG = {
-  // Příklad: 'https://docs.google.com/forms/d/e/1FAIpQLSfOlZFwMx0hf9waGHx43_0wX4ulyW6Ns1bpcDitbPvH83X1iA/formResponse'
-  // Nechte prázdné nebo 'YOUR_FORM_ID_HERE', pokud formulář ještě není vytvořený
-  formUrl: '', 
-
-  // ID jednotlivých políček z Google formuláře:
+  formUrl: 'https://docs.google.com/forms/d/e/1FAIpQLSeJUSw9vL7rk6vvjV-Vv0cuKWXM1HEtRyWIMtEWju7mKe2fag/formResponse',
   entries: {
-    name: 'entry.123456789',       // Jméno a příjmení
-    attendance: 'entry.987654321', // Účast (Ano / Ne)
-    guests: 'entry.112233445',     // Počet osob
-    dietary: 'entry.556677889',    // Diety / Alergie
-    note: 'entry.998877665'        // Vzkaz / Písnička
+    name: 'entry.1498135098',       // Vaše Jméno a Příjmení
+    attendance: 'entry.877086558',  // Vaše účast (Yes,  I'll be there / Sorry, can't make it)
+    guests: 'entry.495194723',      // Počet osob
+    dietary: 'entry.1912311180',    // Dietní omezení / Alergie
+    note: 'entry.696778978'         // Vzkaz / Písnička na přání
   }
 };
 
@@ -156,9 +150,9 @@ function initRSVPForm() {
 
     const name = document.getElementById('rsvpName').value.trim();
     const attendance = document.getElementById('rsvpAttendance').value;
-    const attendanceText = attendance === 'yes' ? 'Ano, s radostí dorazím' : 'Bohužel nedorazím';
+    const attendanceGoogleValue = attendance === 'yes' ? "Yes,  I'll be there" : "Sorry, can't make it";
     const guests = document.getElementById('rsvpGuests').value;
-    const dietary = document.getElementById('rsvpDietary').value.trim();
+    const dietary = document.getElementById('rsvpDietary').value.trim() || 'Bez omezení';
     const note = document.getElementById('rsvpNote').value.trim();
 
     const submitBtn = rsvpForm.querySelector('button[type="submit"]');
@@ -166,24 +160,23 @@ function initRSVPForm() {
     submitBtn.textContent = 'Odesílám potvrzení...';
     submitBtn.disabled = true;
 
-    // Pokud je nastaven Google Form URL, odešleme data na pozadí do Google Tabulky
-    if (GOOGLE_FORM_CONFIG.formUrl && GOOGLE_FORM_CONFIG.formUrl.includes('docs.google.com')) {
+    // Odeslání dat na pozadí do Google Formuláře a Google Tabulky
+    if (GOOGLE_FORM_CONFIG.formUrl) {
       try {
         const formData = new FormData();
         formData.append(GOOGLE_FORM_CONFIG.entries.name, name);
-        formData.append(GOOGLE_FORM_CONFIG.entries.attendance, attendanceText);
+        formData.append(GOOGLE_FORM_CONFIG.entries.attendance, attendanceGoogleValue);
         formData.append(GOOGLE_FORM_CONFIG.entries.guests, guests);
         formData.append(GOOGLE_FORM_CONFIG.entries.dietary, dietary);
         formData.append(GOOGLE_FORM_CONFIG.entries.note, note);
 
-        // Odeslání metodou no-cors do Google Forms backendu
         await fetch(GOOGLE_FORM_CONFIG.formUrl, {
           method: 'POST',
           mode: 'no-cors',
           body: formData
         });
       } catch (err) {
-        console.warn('Odeslání do Google Form proběhlo s upozorněním (u no-cors běžné):', err);
+        console.warn('Odeslání do Google Form:', err);
       }
     }
 
@@ -199,8 +192,8 @@ function initRSVPForm() {
           <h4 style="font-family: var(--font-serif-display); font-size: 1.6rem; color: var(--gold-dark); margin-bottom: 0.5rem;">
             Děkujeme, ${name}! ❤️
           </h4>
-          <p style="color: var(--text-secondary); font-size: 1.05rem; max-width: 500px; margin: 0 auto;">
-            Vaše potvrzení (${attendance === 'yes' ? 'Rád/a dorazím 🎉' : 'Bohužel nedorazím 💔'}, počet hostů: <strong>${guests}</strong>) bylo úspěšně zaznamenáno. Moc se na vás těšíme v Chateau St. Havel!
+          <p style="color: var(--text-secondary); font-size: 1.05rem; max-width: 520px; margin: 0 auto;">
+            Vaše potvrzení (${attendance === 'yes' ? 'Rád/a dorazím 🎉' : 'Bohužel nedorazím 💔'}, počet hostů: <strong>${guests}</strong>) bylo úspěšně zaznamenáno a uloženo. Moc se na vás těšíme v Chateau St. Havel!
           </p>
         </div>
       `;
