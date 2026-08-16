@@ -52,6 +52,48 @@ git push -u origin main
 
 ---
 
+## 💌 Jak propojit RSVP formulář s Google Tabulkou (přes Google Forms na pozadí)
+
+Hosté vyplní krásný designový formulář přímo na webu a data se na pozadí tiše odešlou do vaší **Google Tabulky**:
+
+### Krok 1: Vytvoření Google Formuláře
+1. Otevřete [Google Forms (Formuláře Google)](https://forms.google.com/) a vytvořte nový formulář (např. *„Svatba Lucky a Ondry - RSVP“*).
+2. Přidejte 5 otázek (přesně odpovídajících webu):
+   - **Vaše Jméno a Příjmení** (Stručná odpověď)
+   - **Vaše účast** (Stručná odpověď nebo Výběr z možností: *Ano, s radostí dorazím* / *Bohužel nedorazím*)
+   - **Počet osob** (Stručná odpověď nebo Výběr z možností: *1 osoba*, *2 osoby*, atd.)
+   - **Dietní omezení / Alergie** (Stručná odpověď)
+   - **Vzkaz / Písnička na přání** (Odstavec)
+3. V záložce **Odpovědi (Responses)** klikněte na zelenou ikonku **Propojit s Tabulkami (Sheets)** — vytvoří se nová přehledná Google Tabulka.
+
+### Krok 2: Získání URL a ID položek (`entry.XXXXX`)
+1. V pravém horním rohu klikněte na tři tečky `⋮` a zvolte **Získat předvyplněný odkaz** (*Get pre-filled link*).
+2. Do každého políčka napište zkušební text (např. do jména `JMÉNO`, do účasti `ÚČAST`, do počtu `POČET`, atd.) a dole klikněte na **Získat odkaz** a **Zkopírovat odkaz**.
+3. Zkopírovaný odkaz bude vypadat přibližně takto:
+   ```text
+   https://docs.google.com/forms/d/e/1FAIpQLScXXXXXXXXX/viewform?usp=pp_url&entry.123456789=JMÉNO&entry.987654321=ÚČAST&entry.112233445=POČET&entry.556677889=DIETY&entry.998877665=VZKA Z
+   ```
+
+### Krok 3: Vložení do `js/main.js`
+V souboru [`js/main.js`](file:///c:/projects/LuckaOndraWebPage/js/main.js) hned nahoře v `GOOGLE_FORM_CONFIG`:
+1. Nahraďte `formUrl` za vaši adresu z kroku 2, kde `/viewform?...` změníte na `/formResponse`:
+   ```javascript
+   formUrl: 'https://docs.google.com/forms/d/e/1FAIpQLScXXXXXXXXX/formResponse',
+   ```
+2. Vložte odpovídající `entry.` čísla do objektu `entries`:
+   ```javascript
+   entries: {
+     name: 'entry.123456789',
+     attendance: 'entry.987654321',
+     guests: 'entry.112233445',
+     dietary: 'entry.556677889',
+     note: 'entry.998877665'
+   }
+   ```
+3. Uložte, nahrajte (`git commit & push`) a od té chvíle se každé vyplnění na webu automaticky zapisuje do vaší Google Tabulky!
+
+---
+
 ## 📁 Struktura souborů
 
 ```text
