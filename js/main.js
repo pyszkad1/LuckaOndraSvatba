@@ -153,7 +153,7 @@ function initRSVPForm() {
 
     const name = document.getElementById('rsvpName').value.trim();
     const attendance = document.getElementById('rsvpAttendance').value;
-    const isAttending = attendance.includes('Yes');
+    const isAttending = attendance === 'Ano';
     const guests = document.getElementById('rsvpGuests').value;
 
     const submitBtn = rsvpForm.querySelector('button[type="submit"]');
