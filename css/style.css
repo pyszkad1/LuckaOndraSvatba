@@ -564,34 +564,51 @@ h1, h2, h3, h4, .serif-font {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: 80% 25%;
   display: block;
-  transition: transform 0.5s ease;
+  transition: transform 0.4s ease;
 }
 
-/* Individual framing tuned to where heads and faces are located */
+/* Centering couple in thumbnail previews */
 .gallery-item img.img-pos-trevi {
-  object-position: 90% 65%;
+  transform: scale(1.32) translate(-14%, -8%);
+}
+.gallery-item:hover img.img-pos-trevi {
+  transform: scale(1.38) translate(-14%, -8%);
 }
 
 .gallery-item img.img-pos-retiro {
-  object-position: 85% 25%;
+  transform: scale(1.32) translate(-14%, 0%);
+}
+.gallery-item:hover img.img-pos-retiro {
+  transform: scale(1.38) translate(-14%, 0%);
 }
 
 .gallery-item img.img-pos-pruhonice {
-  object-position: 90% 30%;
+  transform: scale(1.32) translate(-14%, 0%);
+}
+.gallery-item:hover img.img-pos-pruhonice {
+  transform: scale(1.38) translate(-14%, 0%);
 }
 
 .gallery-item img.img-pos-skaly {
-  object-position: 90% 30%;
+  transform: scale(1.32) translate(-14%, -4%);
+}
+.gallery-item:hover img.img-pos-skaly {
+  transform: scale(1.38) translate(-14%, -4%);
 }
 
 .gallery-item img.img-pos-dort {
-  object-position: 60% 25%;
+  transform: scale(1.05) translate(-2%, 0%);
+}
+.gallery-item:hover img.img-pos-dort {
+  transform: scale(1.1) translate(-2%, 0%);
 }
 
 .gallery-item img.img-pos-oslava {
-  object-position: 35% 25%;
+  transform: scale(1.0);
+}
+.gallery-item:hover img.img-pos-oslava {
+  transform: scale(1.05);
 }
 
 .gallery-overlay {
