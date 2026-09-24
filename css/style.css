@@ -25,8 +25,8 @@
   --rose-subtle: #F7EDE8;
 
   /* Typography */
-  --font-serif-display: 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
-  --font-script: 'Great Vibes', 'Parisienne', cursive;
+  --font-serif-display: 'Playfair Display', Georgia, serif;
+  --font-script: 'Playfair Display', Georgia, serif;
   --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 
   /* Elevation & Shadows */
@@ -300,24 +300,24 @@ h1, h2, h3, h4, .serif-font {
   display: inline-flex;
   align-items: center;
   gap: 0.75rem;
-  font-size: clamp(0.85rem, 2vw, 1.05rem);
+  font-size: 0.85rem;
   text-transform: uppercase;
-  letter-spacing: 0.35em;
-  color: var(--gold-dark);
+  letter-spacing: 0.2em;
+  color: var(--text-secondary);
   font-weight: 600;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.25rem;
 }
 
 .hero-eyebrow::before, .hero-eyebrow::after {
   content: "";
-  width: 28px;
+  width: 24px;
   height: 1px;
-  background-color: var(--gold-primary);
+  background-color: rgba(184, 146, 85, 0.4);
 }
 
 .hero-names {
-  font-size: clamp(3rem, 10vw, 6.2rem);
-  line-height: 1.02;
+  font-size: clamp(3rem, 9vw, 5.5rem);
+  line-height: 1.05;
   font-weight: 500;
   color: var(--text-primary);
   margin-bottom: 0.5rem;
@@ -325,22 +325,25 @@ h1, h2, h3, h4, .serif-font {
 }
 
 .hero-ampersand {
-  font-family: var(--font-script);
+  font-family: var(--font-serif-display);
+  font-style: normal;
   font-weight: 400;
-  font-size: clamp(2.5rem, 8vw, 5rem);
-  color: var(--gold-primary);
+  font-size: clamp(2.4rem, 7vw, 4.5rem);
+  color: var(--text-primary);
+  opacity: 0.75;
   display: inline-block;
-  margin: 0 0.3rem;
-  vertical-align: middle;
+  margin: 0 0.4rem;
+  vertical-align: baseline;
 }
 
 .hero-bridge-family {
-  font-family: var(--font-serif-display);
-  font-style: italic;
-  font-size: clamp(1.1rem, 2.5vw, 1.5rem);
-  color: var(--burgundy);
-  margin-top: 0.5rem;
-  margin-bottom: 1.75rem;
+  font-family: var(--font-sans);
+  font-style: normal;
+  font-size: clamp(1.05rem, 2.2vw, 1.25rem);
+  color: var(--text-secondary);
+  font-weight: 500;
+  margin-top: 0.25rem;
+  margin-bottom: 2rem;
   letter-spacing: 0.02em;
 }
 
@@ -348,34 +351,31 @@ h1, h2, h3, h4, .serif-font {
   display: inline-flex;
   flex-direction: column;
   align-items: center;
-  padding: 1.25rem 2.5rem;
-  background: rgba(255, 255, 255, 0.85);
+  gap: 0.35rem;
+  padding: 1.15rem 2.25rem;
+  background: rgba(255, 255, 255, 0.9);
   backdrop-filter: blur(8px);
-  border: var(--border-gold);
+  border: 1px solid rgba(184, 146, 85, 0.3);
   border-radius: var(--radius-md);
-  box-shadow: var(--shadow-md);
+  box-shadow: var(--shadow-sm);
   margin-bottom: 2rem;
 }
 
 .hero-day-time {
-  font-size: 0.85rem;
-  letter-spacing: 0.25em;
-  text-transform: uppercase;
-  color: var(--gold-dark);
-  font-weight: 600;
+  display: none;
 }
 
 .hero-date-big {
   font-family: var(--font-serif-display);
-  font-size: clamp(1.8rem, 5vw, 2.5rem);
+  font-size: clamp(1.4rem, 3.5vw, 1.9rem);
   font-weight: 600;
   color: var(--text-primary);
-  margin: 0.2rem 0;
-  letter-spacing: 0.02em;
+  margin: 0;
+  letter-spacing: 0.01em;
 }
 
 .hero-venue-name {
-  font-size: 1rem;
+  font-size: 0.95rem;
   color: var(--text-secondary);
   font-weight: 500;
 }
@@ -405,19 +405,20 @@ h1, h2, h3, h4, .serif-font {
 }
 
 .countdown-number {
-  font-family: var(--font-serif-display);
-  font-size: clamp(1.5rem, 4vw, 2.2rem);
-  font-weight: 600;
-  color: var(--gold-dark);
-  line-height: 1;
+  font-family: var(--font-sans);
+  font-size: clamp(1.4rem, 3.5vw, 1.9rem);
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.1;
 }
 
 .countdown-label {
   font-size: 0.7rem;
   text-transform: uppercase;
-  letter-spacing: 0.15em;
-  color: var(--text-muted);
+  letter-spacing: 0.12em;
+  color: var(--text-secondary);
   margin-top: 0.35rem;
+  font-weight: 500;
 }
 
 /* Action Buttons */
@@ -569,6 +570,7 @@ h1, h2, h3, h4, .serif-font {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center 15%; /* Elevated crop so selfie heads are fully visible */
   display: block;
   transition: transform 0.5s ease;
 }
@@ -1027,10 +1029,13 @@ h1, h2, h3, h4, .serif-font {
 }
 
 .footer-monogram {
-  font-family: var(--font-script);
-  font-size: 3.5rem;
+  font-family: var(--font-serif-display);
+  font-style: normal;
+  font-size: 3.2rem;
+  font-weight: 500;
   color: var(--gold-light);
   line-height: 1;
+  letter-spacing: 0.1em;
   margin-bottom: 0.5rem;
 }
 
@@ -1147,4 +1152,69 @@ h1, h2, h3, h4, .serif-font {
     min-width: 58px;
     padding: 0.5rem;
   }
+}
+
+
+/* Centered Story Presentation */
+.story-single-wrap {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.story-text-under {
+  margin-top: 2rem;
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(8px);
+  border: var(--border-gold);
+  border-radius: var(--radius-md);
+  padding: clamp(1.5rem, 4vw, 2.5rem);
+  box-shadow: var(--shadow-md);
+}
+
+.story-text-under p {
+  font-family: var(--font-serif-display);
+  font-size: clamp(1.05rem, 2.2vw, 1.25rem);
+  line-height: 1.85;
+  color: var(--text-primary);
+  text-align: justify;
+  margin: 0;
+}
+
+/* Contacts List styling */
+.contacts-list {
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(184, 146, 85, 0.25);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.contact-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.contact-name {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.contact-phone {
+  color: var(--gold-dark);
+  text-decoration: none;
+  font-weight: 600;
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-full);
+  background: var(--bg-subtle);
+  border: var(--border-gold);
+  transition: var(--transition-smooth);
+}
+
+.contact-phone:hover {
+  background: var(--gold-primary);
+  color: #FFFFFF;
 }

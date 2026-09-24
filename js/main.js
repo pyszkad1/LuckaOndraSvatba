@@ -174,7 +174,7 @@ function initRSVPForm() {
             Děkujeme, ${name}! ❤️
           </h4>
           <p style="color: var(--text-secondary); font-size: 1.1rem; max-width: 520px; margin: 0 auto; line-height: 1.6;">
-            Vaše potvrzení (${isAttending ? 'Rád/a dorazím 🎉' : 'Bohužel nedorazím 💔'}, počet hostů: <strong>${guests}</strong>) bylo úspěšně uloženo do naší tabulky hostů. Moc se na vás těšíme v Chateau St. Havel!
+            Vaše potvrzení (${isAttending ? 'S radostí dorazím 🎉' : 'Bohužel se nemohu zúčastnit 💔'}) bylo úspěšně uloženo do naší tabulky hostů. Moc se na vás těšíme v Chateau St. Havel!
           </p>
         </div>
       `;
