@@ -153,7 +153,7 @@ function initRSVPForm() {
 
     const name = document.getElementById('rsvpName').value.trim();
     const attendance = document.getElementById('rsvpAttendance').value;
-    const isAttending = attendance === 'Ano';
+    const isAttending = attendance !== 'Bohužel se nemohu zúčastnit.';
     const guests = document.getElementById('rsvpGuests').value;
 
     const submitBtn = rsvpForm.querySelector('button[type="submit"]');
@@ -169,12 +169,12 @@ function initRSVPForm() {
       statusMsg.style.display = 'block';
       statusMsg.innerHTML = `
         <div style="text-align: center; padding: 1.5rem 0;">
-          <div style="font-size: 3.2rem; margin-bottom: 0.75rem;">💌</div>
+          <div style="font-size: 3.2rem; margin-bottom: 0.75rem;">${isAttending ? '💌' : '🤍'}</div>
           <h4 style="font-family: var(--font-serif-display); font-size: 1.7rem; color: var(--gold-dark); margin-bottom: 0.5rem;">
             Děkujeme, ${name}! ❤️
           </h4>
           <p style="color: var(--text-secondary); font-size: 1.1rem; max-width: 520px; margin: 0 auto; line-height: 1.6;">
-            Vaše potvrzení (${isAttending ? 'S radostí dorazím 🎉' : 'Bohužel se nemohu zúčastnit 💔'}) bylo úspěšně uloženo do naší tabulky hostů. Moc se na vás těšíme v Chateau St. Havel!
+            Vaše odpověď (<strong>${attendance}</strong>) byla úspěšně zaznamenána. ${isAttending ? 'Moc se na vás těšíme v Chateau St. Havel!' : 'Mrzí nás, že se neuvidíme, ale děkujeme za zprávu!'}
           </p>
         </div>
       `;
@@ -183,11 +183,10 @@ function initRSVPForm() {
 }
 
 /* ==========================================================================
-   5. CALENDAR INTEGRATION (Google Calendar & .ics download)
+   5. CALENDAR INTEGRATION (Google Calendar)
    ========================================================================== */
 function initCalendarButtons() {
   const gcalBtn = document.getElementById('btnGoogleCal');
-  const icsBtn = document.getElementById('btnIcsCal');
 
   const title = encodeURIComponent("Svatba Lucky & Ondry");
   const details = encodeURIComponent("Svatba Lucky & Ondry v Chateau St. Havel. Velký den pro bridžovou rodinu Bahníků!");
@@ -196,34 +195,6 @@ function initCalendarButtons() {
 
   if (gcalBtn) {
     gcalBtn.href = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=${dates}&details=${details}&location=${location}`;
-  }
-
-  if (icsBtn) {
-    icsBtn.addEventListener('click', (e) => {
-      e.preventDefault();
-      const icsContent = [
-        "BEGIN:VCALENDAR",
-        "VERSION:2.0",
-        "PRODID:-//Lucka & Ondra Wedding//CZ",
-        "BEGIN:VEVENT",
-        "SUMMARY:Svatba Lucky & Ondry",
-        "DESCRIPTION:Svatba Lucky & Ondry v Chateau St. Havel. Velký den pro bridžovou rodinu Bahníků!",
-        "LOCATION:Chateau St. Havel wellness hotel, Před nádražím 1/6, Praha 4 - Krč",
-        "DTSTART:20270508T110000Z",
-        "DTEND:20270509T020000Z",
-        "STATUS:CONFIRMED",
-        "END:VEVENT",
-        "END:VCALENDAR"
-      ].join("\r\n");
-
-      const blob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8' });
-      const link = document.createElement('a');
-      link.href = window.URL.createObjectURL(blob);
-      link.setAttribute('download', 'svatba-lucka-ondra.ics');
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-    });
   }
 }
 

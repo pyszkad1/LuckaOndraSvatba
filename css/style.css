@@ -1032,28 +1032,92 @@ h1, h2, h3, h4, .serif-font {
   text-align: center;
 }
 
-/* Contacts List Box */
-.contacts-list {
+/* Contacts Section - Grouped Boxes */
+.contacts-sections {
   margin-top: 1.25rem;
   display: flex;
   flex-direction: column;
-  gap: 0.65rem;
+  gap: 1.15rem;
+}
+
+.contact-group-box {
+  background: var(--bg-subtle);
+  border: 1px solid rgba(184, 146, 85, 0.3);
+  border-radius: var(--radius-sm);
+  padding: 1.1rem 1.15rem;
+  transition: var(--transition-smooth);
+}
+
+.contact-group-box:hover {
+  border-color: var(--gold-primary);
+  box-shadow: 0 4px 14px rgba(184, 146, 85, 0.12);
+}
+
+.contact-group-header {
+  margin-bottom: 0.45rem;
+}
+
+.contact-group-badge {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--burgundy);
+  background: rgba(122, 46, 59, 0.08);
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(122, 46, 59, 0.18);
+}
+
+.contact-group-desc {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin-bottom: 0.75rem;
+}
+
+.contacts-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin: 0;
+  padding: 0;
 }
 
 .contact-item {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  background: #FFFFFF;
   padding: 0.65rem 0.9rem;
-  background: var(--bg-subtle);
   border-radius: var(--radius-sm);
-  border: 1px solid rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(184, 146, 85, 0.2);
+  transition: var(--transition-smooth);
+}
+
+.contact-item:hover {
+  border-color: rgba(184, 146, 85, 0.5);
+  transform: translateX(2px);
+}
+
+.contact-info-col {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
 }
 
 .contact-name {
   font-weight: 600;
-  font-size: 0.9rem;
+  font-size: 0.92rem;
   color: var(--text-primary);
+}
+
+.contact-role {
+  font-size: 0.78rem;
+  color: var(--text-muted);
 }
 
 .contact-phone {
@@ -1061,12 +1125,40 @@ h1, h2, h3, h4, .serif-font {
   font-size: 0.86rem;
   color: var(--gold-dark);
   text-decoration: none;
-  transition: color 0.2s ease;
+  padding: 0.3rem 0.8rem;
+  border-radius: var(--radius-full);
+  background: var(--bg-subtle);
+  border: 1px solid rgba(184, 146, 85, 0.35);
+  transition: var(--transition-smooth);
+  white-space: nowrap;
 }
 
 .contact-phone:hover {
-  color: var(--wine);
-  text-decoration: underline;
+  background: var(--gold-primary);
+  color: #FFFFFF;
+  border-color: var(--gold-primary);
+  box-shadow: 0 2px 8px rgba(184, 146, 85, 0.3);
+}
+
+.contact-onsite-badge {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--sage-green);
+  background: rgba(91, 117, 99, 0.12);
+  border: 1px solid rgba(91, 117, 99, 0.25);
+  padding: 0.3rem 0.8rem;
+  border-radius: var(--radius-full);
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.contact-onsite-badge::before {
+  content: "•";
+  font-size: 1.2rem;
+  line-height: 0;
+  color: var(--sage-green);
 }
 
 /* QR Code & Gift Info */
@@ -1097,6 +1189,65 @@ h1, h2, h3, h4, .serif-font {
   box-shadow: var(--shadow-lg);
   text-align: center;
   position: relative;
+}
+
+/* RSVP Deadline Box */
+.rsvp-deadline-box {
+  margin: 1.5rem auto 2.25rem;
+  max-width: 580px;
+  background: linear-gradient(135deg, rgba(223, 199, 155, 0.28) 0%, rgba(247, 237, 232, 0.6) 100%);
+  border: 2px solid var(--gold-primary);
+  border-radius: var(--radius-md);
+  padding: 1.1rem 1.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.1rem;
+  box-shadow: 0 6px 20px rgba(184, 146, 85, 0.18);
+  text-align: left;
+}
+
+.rsvp-deadline-icon {
+  font-size: 2.2rem;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+.rsvp-deadline-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.rsvp-deadline-badge {
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--burgundy);
+}
+
+.rsvp-deadline-text {
+  font-size: 1.08rem;
+  color: var(--text-primary);
+  margin: 0;
+  line-height: 1.45;
+}
+
+.rsvp-deadline-text strong {
+  color: var(--burgundy);
+  font-weight: 700;
+  border-bottom: 2px solid var(--gold-primary);
+  padding-bottom: 1px;
+}
+
+@media (max-width: 480px) {
+  .rsvp-deadline-box {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.6rem;
+    padding: 1rem 1.2rem;
+  }
 }
 
 .rsvp-form {
@@ -1322,41 +1473,4 @@ h1, h2, h3, h4, .serif-font {
   margin: 0;
 }
 
-/* Contacts List styling */
-.contacts-list {
-  margin-top: 1.25rem;
-  padding-top: 1rem;
-  border-top: 1px solid rgba(184, 146, 85, 0.25);
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-}
 
-.contact-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-}
-
-.contact-name {
-  font-weight: 600;
-  color: var(--text-primary);
-}
-
-.contact-phone {
-  color: var(--gold-dark);
-  text-decoration: none;
-  font-weight: 600;
-  padding: 0.25rem 0.75rem;
-  border-radius: var(--radius-full);
-  background: var(--bg-subtle);
-  border: var(--border-gold);
-  transition: var(--transition-smooth);
-}
-
-.contact-phone:hover {
-  background: var(--gold-primary);
-  color: #FFFFFF;
-}

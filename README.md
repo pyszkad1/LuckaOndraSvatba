@@ -8,7 +8,7 @@ Tento repozitář obsahuje kompletní, moderní a plně responzivní svatební w
 
 - **Hero sekce**: Jména snoubenců (*Lucka & Ondra*), datum (*Sobota 8. 5. 2027*), oznámení (*Řekla ANO!*), podtitul (*Velký den pro bridžovou rodinu Bahníků*).
 - **Živý odpočet**: Interaktivní odpočítávání dnů, hodin, minut a sekund do svatebního obřadu.
-- **Uložení do kalendáře**: Přímý odkaz pro přidání události do Google Kalendáře a stažení standardního `.ics` souboru (Apple Kalendář, Outlook).
+- **Uložení do kalendáře**: Přímý odkaz pro přidání události do Google Kalendáře.
 - **Příběh & Zásnuby**: Fotografie zásnubního prstýnku s výhledem na skotský viadukt Glenfinnan.
 - **Místo konání & Mapa**: Interaktivní Google Mapa lokality *Chateau St. Havel (Praha 4 - Krč)*, odkazy na oficiální web hotelu, Google Mapy a Mapy.cz.
 - **Harmonogram dne**: Časová osa s jednotlivými fázemi dne (obřad, hostina, dort, raut, tanec, párty).
