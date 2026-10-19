@@ -815,7 +815,7 @@ h1, h2, h3, h4, .serif-font {
 }
 
 .timeline-item:nth-child(odd) .timeline-content {
-  text-align: right;
+  text-align: left;
 }
 
 .timeline-time {

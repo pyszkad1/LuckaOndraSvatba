@@ -132,10 +132,9 @@ const GOOGLE_FORM_CONFIG = {
   formUrl: 'https://docs.google.com/forms/d/e/1FAIpQLSeJUSw9vL7rk6vvjV-Vv0cuKWXM1HEtRyWIMtEWju7mKe2fag/formResponse',
   entries: {
     name: 'entry.1498135098',       // Vaše Jméno a Příjmení
-    attendance: 'entry.877086558',  // Vaše účast (Yes,  I'll be there / Sorry, can't make it)
-    guests: 'entry.495194723',      // Počet osob
+    attendance: 'entry.877086558',  // Vaše účast
     dietary: 'entry.1912311180',    // Dietní omezení / Alergie
-    note: 'entry.696778978'         // Vzkaz / Písnička na přání
+    note: 'entry.696778978'         // Odkaz na videopřípitek / vzkaz
   }
 };
 
@@ -149,12 +148,33 @@ function initRSVPForm() {
 
   rsvpForm.addEventListener('submit', () => {
     if (isSubmitting) return;
-    isSubmitting = true;
 
     const name = document.getElementById('rsvpName').value.trim();
     const attendance = document.getElementById('rsvpAttendance').value;
     const isAttending = attendance !== 'Bohužel se nemohu zúčastnit.';
-    const guests = document.getElementById('rsvpGuests').value;
+
+    // Mapování zvolené možnosti účasti na přesnou hodnotu nastavenou v Google Formuláři
+    const attendanceMap = {
+      'Zúčastním se kompletního programu.': 'Zucastnim se kompletniho programu.',
+      'Zúčastním se obřadu a odpoledního programu (cca do 19 hod).': 'Zucastnim se obradu a odpoledniho programu (cca do 19 hod).',
+      'Zúčastním se pouze obřadu (cca do 15 hod).': 'Zucastnim se pouze obradu (cca do 15 hod).',
+      'Bohužel se nemohu zúčastnit.': 'Bohuzel se nemohu zucastnit.'
+    };
+
+    const entryAttendance = document.getElementById('entryAttendance');
+    if (entryAttendance) {
+      entryAttendance.value = attendanceMap[attendance] || attendance;
+    }
+
+    // Odkaz na videopřípitek / vzkaz se odesílá přímo do nového samostatného sloupce
+    const noteEl = document.getElementById('rsvpNote');
+    const userNote = noteEl ? noteEl.value.trim() : '';
+    const entryNote = document.getElementById('entryNote');
+    if (entryNote) {
+      entryNote.value = userNote;
+    }
+
+    isSubmitting = true;
 
     const submitBtn = rsvpForm.querySelector('button[type="submit"]');
     const originalText = submitBtn.textContent;
