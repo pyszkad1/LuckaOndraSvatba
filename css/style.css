@@ -1149,7 +1149,7 @@ h1, h2, h3, h4, .serif-font {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   gap: 0.75rem;
   background: #FFFFFF;
   padding: 0.65rem 0.9rem;
@@ -1188,7 +1188,8 @@ h1, h2, h3, h4, .serif-font {
   text-overflow: ellipsis;
 }
 
-.contact-phone {
+.contact-phone,
+.contact-email {
   font-weight: 600;
   font-size: 0.86rem;
   color: var(--gold-dark);
@@ -1204,7 +1205,8 @@ h1, h2, h3, h4, .serif-font {
   align-items: center;
 }
 
-.contact-phone:hover {
+.contact-phone:hover,
+.contact-email:hover {
   background: var(--gold-primary);
   color: #FFFFFF;
   border-color: var(--gold-primary);
